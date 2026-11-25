@@ -87,3 +87,31 @@ void main()
     
 }
 ```
+# 8	Find the equilibrium index
+```c
+#include<stdio.h>
+void main()
+{
+    int arr[]={-7, 1, 5, 2, -4, 3, 0};
+    int i,len=sizeof(arr)/sizeof(arr[0]);
+    int to,ls,rs,found=-1;
+    to=ls=rs=0;
+    for(i=0;i<len;i++)
+    {
+        to += arr[i];
+    }
+    for(i=0;i<len;i++)
+    {
+        rs = to - ls - arr[i];
+        if(rs==ls)
+        {
+            printf("%d ",i);
+            found=1;
+        }
+        ls += arr[i];
+    }
+    if(found==-1)
+        printf("thers is no equilibrium index\n");
+}
+```
+
